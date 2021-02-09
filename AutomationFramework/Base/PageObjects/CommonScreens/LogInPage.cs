@@ -1,5 +1,4 @@
-﻿using Base.Utils.Driver;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 
 namespace Base.PageObjects.CommonScreens
 {

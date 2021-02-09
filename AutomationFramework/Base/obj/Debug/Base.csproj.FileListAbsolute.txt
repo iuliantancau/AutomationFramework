@@ -128,3 +128,4 @@ C:\Endava Projects\Brit\AutomationFramework\AutomationFramework\Base\obj\Debug\B
 C:\Endava Projects\Brit\AutomationFramework\AutomationFramework\Base\obj\Debug\Base.csproj.CopyComplete
 C:\Endava Projects\Brit\AutomationFramework\AutomationFramework\Base\obj\Debug\Base.dll
 C:\Endava Projects\Brit\AutomationFramework\AutomationFramework\Base\obj\Debug\Base.pdb
+C:\Endava Projects\Brit\AutomationFramework\AutomationFramework\Base\obj\Debug\Base.csprojAssemblyReference.cache

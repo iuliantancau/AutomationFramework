@@ -94,9 +94,6 @@
     <Compile Include="PageObjects\CommonScreens\LeftMenu.cs" />
     <Compile Include="PageObjects\CommonScreens\LogInPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utils\Driver\BritDriver.cs" />
-    <Compile Include="Utils\Driver\DriverFactory.cs" />
-    <Compile Include="Utils\Enums.cs" />
     <Compile Include="Utils\Environments.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

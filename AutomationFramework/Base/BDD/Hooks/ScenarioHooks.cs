@@ -1,5 +1,4 @@
 ﻿using Base.Utils;
-using Base.Utils.Driver;
 using BoDi;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;

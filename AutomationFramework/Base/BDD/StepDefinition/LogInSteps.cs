@@ -1,6 +1,5 @@
 ﻿using Base.PageObjects.CommonScreens;
 using Base.Utils;
-using Base.Utils.Driver;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using TechTalk.SpecFlow;

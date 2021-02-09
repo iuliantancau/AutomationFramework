@@ -1,14 +1,11 @@
-﻿using Base.Utils.Driver;
+﻿
+using OpenQA.Selenium;
 
 namespace Base.PageObjects.CommonScreens
 {
     public class HomePage
     {
-        BritDriver driver;
 
-        public HomePage(BritDriver driver)
-        {
-            this.driver = driver;
-        }
+
     }
 }
