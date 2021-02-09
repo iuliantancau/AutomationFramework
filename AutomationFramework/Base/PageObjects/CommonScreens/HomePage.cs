@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Base.Utils.Driver;
 
 namespace Base.PageObjects.CommonScreens
 {
-    class HomePage
+    public class HomePage
     {
+        BritDriver driver;
+
+        public HomePage(BritDriver driver)
+        {
+            this.driver = driver;
+        }
     }
 }

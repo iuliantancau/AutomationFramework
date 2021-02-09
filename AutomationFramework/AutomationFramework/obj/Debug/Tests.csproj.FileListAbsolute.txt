@@ -117,8 +117,11 @@ C:\Endava Projects\Brit\AutomationFramework\AutomationFramework\AutomationFramew
 C:\Endava Projects\Brit\AutomationFramework\AutomationFramework\AutomationFramework\bin\Debug\TechTalk.SpecFlow.pdb
 C:\Endava Projects\Brit\AutomationFramework\AutomationFramework\AutomationFramework\bin\Debug\TechTalk.SpecFlow.xml
 C:\Endava Projects\Brit\AutomationFramework\AutomationFramework\AutomationFramework\bin\Debug\Utf8Json.xml
-C:\Endava Projects\Brit\AutomationFramework\AutomationFramework\AutomationFramework\obj\Debug\Tests.csprojAssemblyReference.cache
 C:\Endava Projects\Brit\AutomationFramework\AutomationFramework\AutomationFramework\obj\Debug\Tests.csproj.CoreCompileInputs.cache
 C:\Endava Projects\Brit\AutomationFramework\AutomationFramework\AutomationFramework\obj\Debug\Tests.csproj.CopyComplete
 C:\Endava Projects\Brit\AutomationFramework\AutomationFramework\AutomationFramework\obj\Debug\AutomationFramework.dll
 C:\Endava Projects\Brit\AutomationFramework\AutomationFramework\AutomationFramework\obj\Debug\AutomationFramework.pdb
+C:\Endava Projects\Brit\AutomationFramework\AutomationFramework\AutomationFramework\bin\Debug\TechTalk.SpecFlow.NUnit.SpecFlowPlugin.dll
+C:\Endava Projects\Brit\AutomationFramework\AutomationFramework\AutomationFramework\bin\Debug\AutomationFramework.dll.config
+C:\Endava Projects\Brit\AutomationFramework\AutomationFramework\AutomationFramework\bin\Debug\TechTalk.SpecFlow.NUnit.SpecFlowPlugin.pdb
+C:\Endava Projects\Brit\AutomationFramework\AutomationFramework\AutomationFramework\obj\Debug\Tests.csprojAssemblyReference.cache
