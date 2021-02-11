@@ -6,13 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Base.PageObjects.CommonScreens
+namespace Base.PageObjects
 {
-    class LeftMenu
+    public class BrokerScreen1
     {
         BritDriver Driver;
 
-        public LeftMenu(BritDriver driver)
+        public BrokerScreen1(BritDriver driver)
         {
             Driver = driver;
         }

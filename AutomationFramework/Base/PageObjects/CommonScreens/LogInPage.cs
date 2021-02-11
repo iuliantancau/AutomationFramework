@@ -1,25 +1,29 @@
-﻿using OpenQA.Selenium;
+﻿using Base.Utils;
+using OpenQA.Selenium;
 
 namespace Base.PageObjects.CommonScreens
 {
     public class LogInPage
     {
-        IWebDriver driver;
+        BritDriver Driver;
 
-        private IWebElement UserName => driver.FindElement(By.Id("UserName"));
-        private IWebElement Password => driver.FindElement(By.Id("Password"));
-        private IWebElement SignInButton => driver.FindElement(By.Id("loginbutton"));
+        IWebElement UserName => Driver.FindElementById("UserName");
+        IWebElement Password => Driver.FindElementById("Password");
+        IWebElement SignInButton => Driver.FindElementById("loginbutton");
 
-        public LogInPage(IWebDriver driver)
+        public LogInPage(BritDriver driver)
         {
-            this.driver = driver;
+            Driver = driver;
         }
 
-        public void SignIn()
+        public HomePage LogIn()
         {
             UserName.SendKeys("Terror 24 Broker");
             Password.SendKeys("Twenty20");
             SignInButton.Click();
+
+            return new HomePage(Driver);
         }
+
     }
 }

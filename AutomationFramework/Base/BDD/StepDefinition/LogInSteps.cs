@@ -7,12 +7,12 @@ using TechTalk.SpecFlow;
 namespace Base.BDD.StepDefinition
 {
     [Binding]
-    public class LogInSteps
-    {
-        private IWebDriver Driver;
-        LogInPage logInPage => new LogInPage(Driver);
+    public class LogInSteps : BaseSteps
+    {       
+        LogInPage LogInPage;
+        HomePage HomePage;
 
-        public LogInSteps(IWebDriver driver)
+        public LogInSteps(BritDriver driver)
         {
             Driver = driver;
         }
@@ -20,16 +20,20 @@ namespace Base.BDD.StepDefinition
         [Given(@"The user navigates to website")]
         public void GivenTheUserNavigatesToWebsite()
         {
-            Driver.Navigate().GoToUrl(Environments.DEV);
-            Assert.AreEqual("RuleBook", Driver.Title);
+            Driver.GetDriver().Navigate().GoToUrl(Environments.DEV);
+            LogInPage = new LogInPage(Driver);         
         }
-
 
         [Given(@"The user logs in as a broker")]
         public void GivenTheUserLogsInAsABroker()
         {
-            logInPage.SignIn();
-            Assert.AreEqual("RuleBook - Quotes", Driver.Title);
+            HomePage = LogInPage.LogIn();           
+        }
+
+        [Given(@"The user logs in as an underwriter")]
+        public void GivenTheUserLogsInAnUnderwriter()
+        {
+            HomePage = LogInPage.LogIn();         
         }
 
 

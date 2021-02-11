@@ -112,6 +112,7 @@ C:\Endava Projects\Brit\AutomationFramework\AutomationFramework\Base\bin\Debug\S
 C:\Endava Projects\Brit\AutomationFramework\AutomationFramework\Base\bin\Debug\TechTalk.SpecFlow.dll
 C:\Endava Projects\Brit\AutomationFramework\AutomationFramework\Base\bin\Debug\Utf8Json.dll
 C:\Endava Projects\Brit\AutomationFramework\AutomationFramework\Base\bin\Debug\WebDriver.dll
+C:\Endava Projects\Brit\AutomationFramework\AutomationFramework\Base\bin\Debug\WebDriver.Support.dll
 C:\Endava Projects\Brit\AutomationFramework\AutomationFramework\Base\bin\Debug\BoDi.pdb
 C:\Endava Projects\Brit\AutomationFramework\AutomationFramework\Base\bin\Debug\Google.Protobuf.pdb
 C:\Endava Projects\Brit\AutomationFramework\AutomationFramework\Base\bin\Debug\Google.Protobuf.xml
@@ -122,10 +123,10 @@ C:\Endava Projects\Brit\AutomationFramework\AutomationFramework\Base\bin\Debug\T
 C:\Endava Projects\Brit\AutomationFramework\AutomationFramework\Base\bin\Debug\TechTalk.SpecFlow.NUnit.SpecFlowPlugin.pdb
 C:\Endava Projects\Brit\AutomationFramework\AutomationFramework\Base\bin\Debug\Utf8Json.xml
 C:\Endava Projects\Brit\AutomationFramework\AutomationFramework\Base\bin\Debug\WebDriver.xml
+C:\Endava Projects\Brit\AutomationFramework\AutomationFramework\Base\bin\Debug\WebDriver.Support.xml
 C:\Endava Projects\Brit\AutomationFramework\AutomationFramework\Base\obj\Debug\Base.Utils.Environments.resources
 C:\Endava Projects\Brit\AutomationFramework\AutomationFramework\Base\obj\Debug\Base.csproj.GenerateResource.cache
 C:\Endava Projects\Brit\AutomationFramework\AutomationFramework\Base\obj\Debug\Base.csproj.CoreCompileInputs.cache
 C:\Endava Projects\Brit\AutomationFramework\AutomationFramework\Base\obj\Debug\Base.csproj.CopyComplete
 C:\Endava Projects\Brit\AutomationFramework\AutomationFramework\Base\obj\Debug\Base.dll
 C:\Endava Projects\Brit\AutomationFramework\AutomationFramework\Base\obj\Debug\Base.pdb
-C:\Endava Projects\Brit\AutomationFramework\AutomationFramework\Base\obj\Debug\Base.csprojAssemblyReference.cache

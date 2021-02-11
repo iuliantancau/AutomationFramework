@@ -10,7 +10,7 @@ namespace Base.BDD.Hooks
     class ScenarioHooks
     {
         private IObjectContainer objectContainer;
-        public IWebDriver Driver;
+        public BritDriver BritDriver;
 
         public ScenarioHooks(IObjectContainer objectContainer)
         {
@@ -20,14 +20,14 @@ namespace Base.BDD.Hooks
         [BeforeScenario]
         public void BeforeScenario()
         {
-            Driver = new ChromeDriver();
-            objectContainer.RegisterInstanceAs(Driver);
+            BritDriver = new BritDriver(Browser.Chrome);
+            objectContainer.RegisterInstanceAs(BritDriver);
         }
 
         [AfterScenario]
         public void AfterScenario()
         {
-            Driver.Quit();
+            BritDriver.GetDriver().Quit();
         }
     }
 }

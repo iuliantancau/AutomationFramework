@@ -81,27 +81,35 @@
     <Reference Include="WebDriver, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Selenium.WebDriver.3.141.0\lib\net45\WebDriver.dll</HintPath>
     </Reference>
+    <Reference Include="WebDriver.Support, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.Support.3.141.0\lib\net45\WebDriver.Support.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BDD\Hooks\FeatureHooks.cs" />
     <Compile Include="BDD\Hooks\ScenarioHooks.cs" />
     <Compile Include="BDD\Hooks\StepHooks.cs" />
+    <Compile Include="BDD\StepDefinition\BaseSteps.cs" />
     <Compile Include="BDD\StepDefinition\HomePageSteps.cs" />
     <Compile Include="BDD\StepDefinition\LogInSteps.cs" />
+    <Compile Include="PageObjects\BrokerScreen1.cs" />
     <Compile Include="PageObjects\CommonScreens\Footer.cs" />
     <Compile Include="PageObjects\CommonScreens\Header.cs" />
     <Compile Include="PageObjects\CommonScreens\HomePage.cs" />
     <Compile Include="PageObjects\CommonScreens\LeftMenu.cs" />
     <Compile Include="PageObjects\CommonScreens\LogInPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\Enums.cs" />
     <Compile Include="Utils\Environments.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Environments.resx</DependentUpon>
     </Compile>
+    <Compile Include="Utils\BritDriver.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="BDD\Features\Test1.feature" />
     <None Include="BDD\Features\Test.feature" />
     <None Include="packages.config" />
   </ItemGroup>

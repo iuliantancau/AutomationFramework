@@ -28,7 +28,7 @@ namespace Base.BDD.Features
         
         private string[] _featureTags = ((string[])(null));
         
-#line 1 "Test.feature"
+#line 1 "Test - Copy.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
