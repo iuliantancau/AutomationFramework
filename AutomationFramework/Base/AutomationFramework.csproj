@@ -92,6 +92,8 @@
     <Compile Include="BDD\StepDefinition\BaseSteps.cs" />
     <Compile Include="BDD\StepDefinition\HomePageSteps.cs" />
     <Compile Include="BDD\StepDefinition\LogInSteps.cs" />
+    <Compile Include="Utils\DataReader.cs" />
+    <Compile Include="Data\Models\LogInDataModel.cs" />
     <Compile Include="PageObjects\BrokerScreen1.cs" />
     <Compile Include="PageObjects\CommonScreens\Footer.cs" />
     <Compile Include="PageObjects\CommonScreens\Header.cs" />
@@ -106,6 +108,7 @@
       <DependentUpon>Environments.resx</DependentUpon>
     </Compile>
     <Compile Include="Utils\BritDriver.cs" />
+    <Compile Include="Utils\XmlDataReader.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -113,14 +116,15 @@
     <None Include="BDD\Features\Test.feature" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BDD\Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Utils\Environments.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Environments.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\LogIn.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -1,9 +1,6 @@
-﻿using Base.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Base.Data;
+using Base.PageObjects;
+using Base.Utils;
 using TechTalk.SpecFlow;
 
 namespace Base.BDD.StepDefinition
@@ -12,5 +9,6 @@ namespace Base.BDD.StepDefinition
     public class BaseSteps
     {
         public BritDriver Driver;
+        public DataReader DataReader => new DataReader();       
     }
 }

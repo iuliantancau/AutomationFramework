@@ -1,6 +1,5 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
@@ -23,14 +22,51 @@ namespace Base.Utils
 
             Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             Wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(60));
-            Wait.IgnoreExceptionTypes(typeof(StaleElementReferenceException));           
+            Wait.IgnoreExceptionTypes(typeof(StaleElementReferenceException));
         }
 
         public IWebDriver GetDriver()
         {
             return Driver;
-        }   
-       
+        }
+
+        #region Actions
+        public void Click(IWebElement element)
+        {
+            WaitForVisibility(element);
+            WaitForBeClickable(element);
+            element.Click();
+        }
+
+        public void SendKeys(IWebElement element, string value)
+        {
+            WaitForVisibility(element);
+            WaitForBeClickable(element);
+            element.SendKeys(value);
+        }
+
+        public void SelectByIndex(SelectElement element, int index)
+        {
+            WaitForVisibility(element.WrappedElement);
+            WaitForBeClickable(element.WrappedElement);
+            element.SelectByIndex(index);
+        }
+
+        public void SelectByText(SelectElement element, string text)
+        {
+            WaitForVisibility(element.WrappedElement);
+            WaitForBeClickable(element.WrappedElement);
+            element.SelectByText(text);
+        }
+
+        public void SelectByValue(SelectElement element, string value)
+        {
+            WaitForVisibility(element.WrappedElement);
+            WaitForBeClickable(element.WrappedElement);
+            element.SelectByValue(value);
+        }
+        #endregion
+
         #region Wait Methods
         public void WaitForVisibility(IWebElement element, int timeOut = 60, int pollingInterval = 300)
         {
@@ -131,14 +167,13 @@ namespace Base.Utils
         {
             var iWebElements = FindElementsByClassName(className);
             return BuildSelectElementsList(iWebElements);
-        }       
+        }
 
         public IReadOnlyCollection<SelectElement> FindSelectElementsByXPath(string xPath)
         {
             var iWebElements = FindElementsByXPath(xPath);
             return BuildSelectElementsList(iWebElements);
         }
-        #endregion
 
         private List<SelectElement> BuildSelectElementsList(IReadOnlyCollection<IWebElement> iWebElements)
         {
@@ -151,5 +186,6 @@ namespace Base.Utils
 
             return selectElements;
         }
+        #endregion
     }
 }
