@@ -20,6 +20,7 @@ namespace Base.Utils
                 default: throw new ArgumentException();
             }
 
+            Driver.Manage().Window.Maximize();
             Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             Wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(60));
             Wait.IgnoreExceptionTypes(typeof(StaleElementReferenceException));
@@ -28,44 +29,7 @@ namespace Base.Utils
         public IWebDriver GetDriver()
         {
             return Driver;
-        }
-
-        #region Actions
-        public void Click(IWebElement element)
-        {
-            WaitForVisibility(element);
-            WaitForBeClickable(element);
-            element.Click();
-        }
-
-        public void SendKeys(IWebElement element, string value)
-        {
-            WaitForVisibility(element);
-            WaitForBeClickable(element);
-            element.SendKeys(value);
-        }
-
-        public void SelectByIndex(SelectElement element, int index)
-        {
-            WaitForVisibility(element.WrappedElement);
-            WaitForBeClickable(element.WrappedElement);
-            element.SelectByIndex(index);
-        }
-
-        public void SelectByText(SelectElement element, string text)
-        {
-            WaitForVisibility(element.WrappedElement);
-            WaitForBeClickable(element.WrappedElement);
-            element.SelectByText(text);
-        }
-
-        public void SelectByValue(SelectElement element, string value)
-        {
-            WaitForVisibility(element.WrappedElement);
-            WaitForBeClickable(element.WrappedElement);
-            element.SelectByValue(value);
-        }
-        #endregion
+        }      
 
         #region Wait Methods
         public void WaitForVisibility(IWebElement element, int timeOut = 60, int pollingInterval = 300)
@@ -109,83 +73,26 @@ namespace Base.Utils
             Wait.PollingInterval = TimeSpan.FromMilliseconds(pollingInterval);
             Wait.Until(driver => driver.FindElement(elementBy).Enabled);
         }
-        #endregion
 
-        #region Element Locators
-        public IWebElement FindElementById(string id)
+        public void WaitForPendingAjaxTasks(int secondsTimeOut = 20, int millisecondsPollingInterval = 300)
         {
-            return Driver.FindElement(By.Id(id));
+            Wait.Timeout = TimeSpan.FromSeconds(secondsTimeOut);
+            Wait.PollingInterval = TimeSpan.FromMilliseconds(millisecondsPollingInterval);
+            Wait.Until(driver => (bool)((IJavaScriptExecutor)driver).ExecuteScript("return jQuery.active == 0"));
         }
 
-        public IWebElement FindElementByClassName(string className)
+        public void WaitForStaleness(IWebElement element)
         {
-            return Driver.FindElement(By.ClassName(className));
-        }
-
-        public IWebElement FindElementByXPath(string xPath)
-        {
-            return Driver.FindElement(By.XPath(xPath));
-        }
-
-        public IReadOnlyCollection<IWebElement> FindElementsById(string id)
-        {
-            return Driver.FindElements(By.Id(id));
-        }
-
-        public IReadOnlyCollection<IWebElement> FindElementsByClassName(string className)
-        {
-            return Driver.FindElements(By.ClassName(className));
-        }
-
-        public IReadOnlyCollection<IWebElement> FindElementsByXPath(string xPath)
-        {
-            return Driver.FindElements(By.XPath(xPath));
-        }
-
-        public SelectElement FindSelectElementById(string id)
-        {
-            return new SelectElement(Driver.FindElement(By.Id(id)));
-        }
-
-        public SelectElement FindSelectElementByClassName(string className)
-        {
-            return new SelectElement(Driver.FindElement(By.ClassName(className)));
-        }
-
-        public SelectElement FindSelectElementByXPath(string xPath)
-        {
-            return new SelectElement(Driver.FindElement(By.XPath(xPath)));
-        }
-
-        public IReadOnlyCollection<SelectElement> FindSelectElementsById(string id)
-        {
-            var iWebElements = FindElementsById(id);
-            return BuildSelectElementsList(iWebElements);
-        }
-
-        public List<SelectElement> FindSelectElementsByClassName(string className)
-        {
-            var iWebElements = FindElementsByClassName(className);
-            return BuildSelectElementsList(iWebElements);
-        }
-
-        public IReadOnlyCollection<SelectElement> FindSelectElementsByXPath(string xPath)
-        {
-            var iWebElements = FindElementsByXPath(xPath);
-            return BuildSelectElementsList(iWebElements);
-        }
-
-        private List<SelectElement> BuildSelectElementsList(IReadOnlyCollection<IWebElement> iWebElements)
-        {
-            List<SelectElement> selectElements = null;
-
-            foreach (var item in iWebElements)
-            {
-                selectElements.Add(new SelectElement(item));
+            try
+            {               
+                Wait.PollingInterval = TimeSpan.FromMilliseconds(50);
+                Wait.Until(ExpectedConditions.StalenessOf(element));
             }
-
-            return selectElements;
+            catch (WebDriverTimeoutException)
+            {
+                //sometimes the footer is not stale after save/next 
+            }
         }
-        #endregion
+        #endregion        
     }
 }

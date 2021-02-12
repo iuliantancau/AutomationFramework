@@ -8,7 +8,7 @@ namespace Base.BDD.StepDefinition
     [Binding]
     public class BaseSteps
     {
-        public BritDriver Driver;
+        public BritDriver BritDriver;
         public DataReader DataReader => new DataReader();       
     }
 }

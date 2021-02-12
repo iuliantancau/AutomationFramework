@@ -1,5 +1,8 @@
-﻿using Base.Utils;
+﻿using Base.BDD.TableModels.BrokerScreen1;
+using Base.PageObjects.Common;
+using Base.Utils;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,13 +11,67 @@ using System.Threading.Tasks;
 
 namespace Base.PageObjects
 {
-    public class BrokerScreen1
+    public class BrokerScreen1 : BasePage
     {
-        BritDriver Driver;
+        public Header Header;
 
-        public BrokerScreen1(BritDriver driver)
+
+        #region Insured Details
+        IWebElement Corporate => FindElementById("CoporateCheckBox_0");
+        IWebElement Individual => FindElementById("IndividualCheckBox_0");
+
+        //Corporate
+        SelectElement Country => FindSelectElementById("InsuredCountryCountryDropDown_0");
+        IWebElement InsuredName => FindElementById("InsuredCoporateName_0");
+        SelectElement ChooseInsured => FindSelectElementById("InsuredCoporateChooseInsured_0");
+        IWebElement OverrideApplicantDetails => FindElementById("InsuredCoporateOverrideApplicantDetails_0");
+        IWebElement OverrideIndustry => FindElementById("InsuredCoporateOverrideIndustry_0");
+
+        //Individual
+        IWebElement FirstName => FindElementById("InsuredIndividualFirstName_0");
+        IWebElement Surname => FindElementById("InsuredIndividualSurname_0");
+        IWebElement StreedAddress => FindElementById("InsuredIndividualDetailsStreetAddress_0");
+        IWebElement TownCity => FindElementById("InsuredIndividualDetailsTownCity_0");
+        IWebElement Postcode => FindElementById("InsuredIndividualDetailsPostcode_0");
+        SelectElement MainBusinessDescription => FindSelectElementById("InsuredIndividualDetailsMainBusinessDescription_0");
+        #endregion
+
+        #region Policy Details
+        SelectElement QuotableCoverage1 => FindSelectElementById("CoverageDropDown_0");
+        #endregion
+
+        public BrokerScreen1(BritDriver britDriver) : base(britDriver)
         {
-            Driver = driver;
+            Header = new Header(britDriver);
+        }
+
+        public void CompleteInsuredDetails(InsuredDetailsModel insuredDetails)
+        {
+            SelectInsuredType(insuredDetails.InsuredType);
+            SelectByText(Country, insuredDetails.Country);
+            SendKeys(InsuredName, insuredDetails.InsuredName);
+            SelectCheckBox(OverrideApplicantDetails, insuredDetails.OverrideApplicantDetails);
+            SelectCheckBox(OverrideIndustry, insuredDetails.OverrideIndustry);
+            SelectByText(ChooseInsured, insuredDetails.ChooseInsured);
+        }     
+        
+        public void CompletePolicyDetails(PolicyDetailsModel policyDetails)
+        {
+            SelectByText(QuotableCoverage1, policyDetails.QuotableCoverage1);
+        }        
+
+        public BrokerScreen1 SavePage()
+        {
+           return Header.SavePage<BrokerScreen1>();
+        }
+
+        private void SelectInsuredType(string type)
+        {
+            if (type.Equals("Corporate"))
+                Click(Corporate);
+            else if (type.Equals("Individual"))
+                Click(Individual);
+            else throw new ArgumentException("Invalid type selected");
         }
     }
 }

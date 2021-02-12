@@ -20,22 +20,22 @@ namespace Base.BDD.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.6.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Test")]
-    public partial class TestFeature
+    [NUnit.Framework.DescriptionAttribute("SpecFlowFeature3")]
+    public partial class SpecFlowFeature3Feature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private string[] _featureTags = ((string[])(null));
         
-#line 1 "Test.feature"
+#line 1 "SpecFlowFeature3.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "BDD/Features", "Test", "\tIn order to avoid silly mistakes\r\n\tAs a math idiot\r\n\tI want to be told the sum o" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "BDD/Features", "SpecFlowFeature3", "\tIn order to avoid silly mistakes\r\n\tAs a math idiot\r\n\tI want to be told the sum o" +
                     "f two numbers", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
@@ -110,23 +110,23 @@ this.ScenarioInitialize(scenarioInfo);
 #line 9
  testRunner.And("The user selects product \'Terror\' and scheme \'Terror 24\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
                             "Insured Type",
                             "Insured Name",
                             "Choose Insured"});
-                table1.AddRow(new string[] {
+                table5.AddRow(new string[] {
                             "Corporate",
                             "Test",
                             "Test Partners, Centurion House London Road, STAINES, TW18 4AX"});
 #line 10
- testRunner.And("The user completes the Insured Details region", ((string)(null)), table1, "And ");
+ testRunner.And("The user completes the Insured Details region", ((string)(null)), table5, "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
                             "QuotableCoverage1"});
-                table2.AddRow(new string[] {
+                table6.AddRow(new string[] {
                             "Property Damage Only"});
 #line 13
- testRunner.And("The user completes the Policy Details region", ((string)(null)), table2, "And ");
+ testRunner.And("The user completes the Policy Details region", ((string)(null)), table6, "And ");
 #line hidden
 #line 16
  testRunner.And("The user saves the page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

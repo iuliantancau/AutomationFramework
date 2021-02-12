@@ -1,6 +1,7 @@
 ﻿using Base.PageObjects;
-using Base.PageObjects.CommonScreens;
+using Base.PageObjects.Common;
 using Base.Utils;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using System;
 using TechTalk.SpecFlow;
@@ -22,7 +23,7 @@ namespace Base.BDD.StepDefinition
         public void GivenTheUserSelectsProductAndScheme(string product, string scheme)
         {
             HomePage.CompleteScreen(product, scheme);
-            BrokerScreen1 = HomePage.GoToBrokerScreens();
+            BrokerScreen1 = HomePage.GoToBrokerScreens();            
         }
 
 

@@ -1,6 +1,7 @@
 ﻿using Base.Data;
+using Base.Data.Models;
 using Base.PageObjects;
-using Base.PageObjects.CommonScreens;
+using Base.PageObjects.Common;
 using Base.Utils;
 using NUnit.Framework;
 using OpenQA.Selenium;
@@ -13,30 +14,31 @@ namespace Base.BDD.StepDefinition
     {      
         LogInPage LogInPage;
         HomePage HomePage;
+        LogInDataSet logInData;
 
         public LogInSteps(BritDriver driver)
         {
-            Driver = driver;
+            BritDriver = driver;
         }
 
         [Given(@"The user navigates to website")]
         public void GivenTheUserNavigatesToWebsite()
         {
-            Driver.GetDriver().Navigate().GoToUrl(Environments.DEV);            
-            LogInPage = new LogInPage(Driver);         
+            BritDriver.GetDriver().Navigate().GoToUrl(Environments.DEV);            
+            LogInPage = new LogInPage(BritDriver);         
         }
 
         [Given(@"The user logs in as a broker")]
         public void GivenTheUserLogsInAsABroker()
         {
-            var logInData = DataReader.GetLogInData(1);
+            logInData = DataReader.GetLogInData(1);
             HomePage = LogInPage.LogIn(logInData);           
         }
 
         [Given(@"The user logs in as an underwriter")]
         public void GivenTheUserLogsInAnUnderwriter()
         {
-            var logInData = DataReader.GetLogInData(2);
+            logInData = DataReader.GetLogInData(2);
             HomePage = LogInPage.LogIn(logInData);         
         }
 
