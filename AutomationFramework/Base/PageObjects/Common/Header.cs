@@ -13,7 +13,7 @@ namespace Base.PageObjects.Common
         IWebElement SignOutButton => FindElementById("");
         IWebElement SearchBox => FindElementById("");
         IWebElement SearchButton => FindElementById("");
-        public IWebElement DetailsTab => FindElementByXPath("//*[@id='RB_tabContent']//span[text()='Details']");
+        IWebElement DetailsTab => FindElementByXPath("//*[@id='RB_tabContent']//span[text()='Details']");
         IWebElement PropertySummaryTab => FindElementByXPath("");
         IWebElement ExtensionTab => FindElementByXPath("");
         IWebElement EndorsementTab => FindElementByXPath("");
@@ -29,7 +29,7 @@ namespace Base.PageObjects.Common
             return new LogInPage(BritDriver);
         }
 
-        public T SearchRecord<T>(string policyReference)
+        public T SearchRecord<T>(string policyReference) where T : BasePage
         {
             SendKeys(SearchBox, policyReference);
             SearchButton.Click();
@@ -38,7 +38,7 @@ namespace Base.PageObjects.Common
             return (T)Activator.CreateInstance(typeof(T));
         }
 
-        public T ChangeTab<T>()
+        public T ChangeTab<T>() where T : BasePage
         {
             switch (typeof(T).Name)
             {
@@ -54,10 +54,15 @@ namespace Base.PageObjects.Common
             return (T)Activator.CreateInstance(typeof(T));
         }
 
-        public T SavePage<T>()
+        public T SavePage<T>() where T : BasePage
         {
             Click(Save);
             return (T)Activator.CreateInstance(typeof(T), BritDriver);
+        }
+
+        public void SavePage()
+        {
+            Click(Save);
         }
     }
 }

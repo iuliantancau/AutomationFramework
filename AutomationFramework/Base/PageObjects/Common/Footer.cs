@@ -19,16 +19,16 @@ namespace Base.PageObjects.Common
         public Footer(BritDriver britDriver) : base(britDriver)
         {
 
-        }
+        }        
 
-        public T GoToNextScreen<T>()
+        public T GoToNextScreen<T>() where T : BasePage
         {
             Click(Next);
             BritDriver.WaitForPendingAjaxTasks();
             return (T)Activator.CreateInstance(typeof(T));
         }
-
-        public T GoToPreviosScreen<T>()
+         
+        public T GoToPreviosScreen<T>() where T : BasePage
         {
             Click(Back);
             BritDriver.WaitForPendingAjaxTasks();
@@ -36,8 +36,7 @@ namespace Base.PageObjects.Common
         }
 
         public BrokerScreen4 GoToSummaryPage()
-        {
-
+        {      
             return new BrokerScreen4(BritDriver);
         }
 

@@ -11,8 +11,7 @@ namespace Base.BDD.StepDefinition
     [Binding]
     public class HomePageSteps : BaseSteps
     {      
-        HomePage HomePage;
-        BrokerScreen1 BrokerScreen1;
+        HomePage HomePage;        
 
         public HomePageSteps(HomePage homePage)
         {           

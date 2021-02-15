@@ -34,14 +34,14 @@ namespace Base.PageObjects.Common
                 BritDriver.WaitForVisibility(element);
                 BritDriver.WaitForBeClickable(element);
                 element.Clear();
-                element.SendKeys(value + "\t");              
+                element.SendKeys(value + "\t");
                 BritDriver.WaitForPendingAjaxTasks();
             }
         }
 
         public void SelectByIndex(SelectElement element, string index)
         {
-            if ( index != null)
+            if (index != null)
             {
                 BritDriver.WaitForVisibility(element.WrappedElement);
                 BritDriver.WaitForBeClickable(element.WrappedElement);
@@ -58,7 +58,7 @@ namespace Base.PageObjects.Common
                 BritDriver.WaitForBeClickable(element.WrappedElement);
                 element.SelectByText(text);
                 BritDriver.WaitForPendingAjaxTasks();
-            }
+            }            
         }
 
         public void SelectByValue(SelectElement element, string value)
@@ -89,6 +89,22 @@ namespace Base.PageObjects.Common
             if (option != null && option.ToUpper().Equals("TRUE"))
             {
                 Click(element);
+            }
+        }
+
+        public void AnswerQuestion(string answer, IWebElement yesRadioButton, IWebElement noRadioButton, IWebElement triggeredElement = null)
+        {
+            if (answer != null)
+            {
+                if (answer.ToUpper().Equals("TRUE"))
+                    Click(yesRadioButton);
+                else if (answer.ToUpper().Equals("FALSE"))
+                {
+                    Click(noRadioButton);
+                    if (triggeredElement != null)
+                        SendKeys(triggeredElement, "Test text");
+                }
+                else throw new ArgumentException("Invalid answer option selected");
             }
         }
         #endregion

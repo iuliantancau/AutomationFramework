@@ -74,7 +74,7 @@ namespace Base.Utils
             Wait.Until(driver => driver.FindElement(elementBy).Enabled);
         }
 
-        public void WaitForPendingAjaxTasks(int secondsTimeOut = 20, int millisecondsPollingInterval = 300)
+        public void WaitForPendingAjaxTasks(int secondsTimeOut = 60, int millisecondsPollingInterval = 300)
         {
             Wait.Timeout = TimeSpan.FromSeconds(secondsTimeOut);
             Wait.PollingInterval = TimeSpan.FromMilliseconds(millisecondsPollingInterval);

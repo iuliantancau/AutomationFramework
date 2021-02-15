@@ -91,10 +91,14 @@
     <Compile Include="BDD\Hooks\StepHooks.cs" />
     <Compile Include="BDD\StepDefinition\BaseSteps.cs" />
     <Compile Include="BDD\StepDefinition\BrokerScreen1Steps.cs" />
+    <Compile Include="BDD\StepDefinition\HeaderSteps.cs" />
     <Compile Include="BDD\StepDefinition\HomePageSteps.cs" />
+    <Compile Include="BDD\StepDefinition\LeftMenuSteps.cs" />
     <Compile Include="BDD\StepDefinition\LogInSteps.cs" />
-    <Compile Include="BDD\TableModels\BrokerScreen1\InsuredDetailsModel.cs" />
-    <Compile Include="BDD\TableModels\BrokerScreen1\PolicyDetailsModel.cs" />
+    <Compile Include="BDD\StepDefinition\PriorClaimsSteps.cs" />
+    <Compile Include="BDD\TableModels\BrokerScreen1Model.cs" />
+    <Compile Include="BDD\TableModels\PriorClaimsModel.cs" />
+    <Compile Include="BDD\TableModels\SelectActionModel.cs" />
     <Compile Include="PageObjects\Common\BasePage.cs" />
     <Compile Include="PageObjects\BrokerScreen2.cs" />
     <Compile Include="PageObjects\BrokerScreen3.cs" />

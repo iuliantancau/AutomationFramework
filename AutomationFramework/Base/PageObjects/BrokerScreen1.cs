@@ -1,4 +1,4 @@
-﻿using Base.BDD.TableModels.BrokerScreen1;
+﻿using Base.BDD.TableModels;
 using Base.PageObjects.Common;
 using Base.Utils;
 using OpenQA.Selenium;
@@ -45,7 +45,7 @@ namespace Base.PageObjects
             Header = new Header(britDriver);
         }
 
-        public void CompleteInsuredDetails(InsuredDetailsModel insuredDetails)
+        public void CompleteInsuredDetails(BrokerScreen1Model insuredDetails)
         {
             SelectInsuredType(insuredDetails.InsuredType);
             SelectByText(Country, insuredDetails.Country);
@@ -55,7 +55,7 @@ namespace Base.PageObjects
             SelectByText(ChooseInsured, insuredDetails.ChooseInsured);
         }     
         
-        public void CompletePolicyDetails(PolicyDetailsModel policyDetails)
+        public void CompletePolicyDetails(BrokerScreen1Model policyDetails)
         {
             SelectByText(QuotableCoverage1, policyDetails.QuotableCoverage1);
         }        
@@ -67,11 +67,14 @@ namespace Base.PageObjects
 
         private void SelectInsuredType(string type)
         {
-            if (type.Equals("Corporate"))
-                Click(Corporate);
-            else if (type.Equals("Individual"))
-                Click(Individual);
-            else throw new ArgumentException("Invalid type selected");
+            if (type != null)
+            {
+                if (type.Equals("Corporate"))
+                    Click(Corporate);
+                else if (type.Equals("Individual"))
+                    Click(Individual);
+                else throw new ArgumentException("Invalid type selected");
+            }
         }
     }
 }
