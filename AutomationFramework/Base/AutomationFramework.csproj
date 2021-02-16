@@ -53,6 +53,7 @@
       <HintPath>..\packages\NUnit.3.13.1\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.1.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -118,12 +119,8 @@
     <Compile Include="PageObjects\Common\LeftMenu.cs" />
     <Compile Include="PageObjects\Common\LogInPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\FileHandler.cs" />
     <Compile Include="Utils\Enums.cs" />
-    <Compile Include="Utils\Environments.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Environments.resx</DependentUpon>
-    </Compile>
     <Compile Include="Utils\BritDriver.cs" />
     <Compile Include="Utils\XmlDataReader.cs" />
   </ItemGroup>
@@ -133,12 +130,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <EmbeddedResource Include="Utils\Environments.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Environments.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
   <ItemGroup>
     <Content Include="Data\LogIn.xml" />
   </ItemGroup>

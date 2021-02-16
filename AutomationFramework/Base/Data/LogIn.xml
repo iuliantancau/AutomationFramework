@@ -3,12 +3,12 @@
   <DataSet Id ="1">
     <Username>Terror 24 Broker</Username>
     <Password>Twenty20</Password>
-    <Region></Region>
+    <Region>UK</Region>
   </DataSet>
 
   <DataSet Id ="2">
-    <Username>Endava Uwr</Username>
+    <Username>Terror UW</Username>
     <Password>Twenty20</Password>
-    <Region></Region>
+    <Region>UK</Region>
   </DataSet>
  </DataSets>

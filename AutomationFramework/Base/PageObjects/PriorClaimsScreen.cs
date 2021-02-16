@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Base.PageObjects
 {
-    class PriorClaimsScreen : BasePage
+    public class PriorClaimsScreen : BasePage
     {
         IWebElement PriorClaimsYES => FindElementByXPath("//*[@id='PriorClaimsQuestionYN_0_0'][1]");
         IWebElement PriorClaimsNO => FindElementByXPath("//*[@id='PriorClaimsQuestionYN_0_0'][2]");

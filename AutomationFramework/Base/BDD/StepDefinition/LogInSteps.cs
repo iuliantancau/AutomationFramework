@@ -5,6 +5,7 @@ using Base.PageObjects.Common;
 using Base.Utils;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using System.Configuration;
 using TechTalk.SpecFlow;
 
 namespace Base.BDD.StepDefinition
@@ -24,7 +25,7 @@ namespace Base.BDD.StepDefinition
         [Given(@"The user navigates to website")]
         public void GivenTheUserNavigatesToWebsite()
         {
-            BritDriver.GetDriver().Navigate().GoToUrl(Environments.DEV);
+            BritDriver.GetDriver().Navigate().GoToUrl(ConfigurationManager.AppSettings["Environment"]);
             LogInPage = new LogInPage(BritDriver);
         }
 

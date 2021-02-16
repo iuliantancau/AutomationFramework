@@ -36,8 +36,13 @@ namespace Base.PageObjects
         SelectElement MainBusinessDescription => FindSelectElementById("InsuredIndividualDetailsMainBusinessDescription_0");
         #endregion
 
+        #region Broker Details
+        SelectElement Broker => FindSelectElementById("Broker_0");
+        #endregion
+
         #region Policy Details
         SelectElement QuotableCoverage1 => FindSelectElementById("CoverageDropDown_0");
+        IWebElement ExpiryDate => FindElementById("ExpiryDate_0");
         #endregion
 
         public BrokerScreen1(BritDriver britDriver) : base(britDriver)
@@ -54,10 +59,16 @@ namespace Base.PageObjects
             SelectCheckBox(OverrideIndustry, insuredDetails.OverrideIndustry);
             SelectByText(ChooseInsured, insuredDetails.ChooseInsured);
         }     
+
+        public void CompleteBrokerDetails(BrokerScreen1Model brokerDetails)
+        {
+            SelectByText(Broker, brokerDetails.Broker);
+        }
         
         public void CompletePolicyDetails(BrokerScreen1Model policyDetails)
         {
             SelectByText(QuotableCoverage1, policyDetails.QuotableCoverage1);
+            SendKeys(ExpiryDate, policyDetails.ExpiryDate);
         }        
 
         public BrokerScreen1 SavePage()

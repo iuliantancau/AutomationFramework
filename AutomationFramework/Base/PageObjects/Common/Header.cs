@@ -36,9 +36,51 @@ namespace Base.PageObjects.Common
             Click(SearchBox);
 
             return (T)Activator.CreateInstance(typeof(T));
+        }      
+
+        public T SavePage<T>() where T : BasePage
+        {
+            Click(Save);
+            return (T)Activator.CreateInstance(typeof(T), BritDriver);
         }
 
-        public T ChangeTab<T>() where T : BasePage
+        public void SavePage()
+        {
+            Click(Save);
+        }
+
+        public DetailsScreen GoToDetailsScreen()
+        {
+            return ChangeTab<DetailsScreen>();
+        }
+
+        public PropertySummaryScreen GoToPropertySummaryScreen()
+        {
+            return ChangeTab<PropertySummaryScreen>();
+        }
+
+        public ExtensionScreen GoExtensionScreen()
+        {
+            return ChangeTab<ExtensionScreen>();
+        }
+
+        public EndorsementScreen GoEndorsementScreen()
+        {
+            return ChangeTab<EndorsementScreen>();
+        }
+
+        public PriorClaimsScreen GoToPriorClaimsScreen()
+        {
+            return ChangeTab<PriorClaimsScreen>();
+        }
+
+        public PremiumSummaryScreen GoToPremiumSummaryScreen()
+        {
+            return ChangeTab<PremiumSummaryScreen>();
+        }
+
+        #region Private Methods
+        private T ChangeTab<T>() where T : BasePage
         {
             switch (typeof(T).Name)
             {
@@ -53,16 +95,6 @@ namespace Base.PageObjects.Common
 
             return (T)Activator.CreateInstance(typeof(T));
         }
-
-        public T SavePage<T>() where T : BasePage
-        {
-            Click(Save);
-            return (T)Activator.CreateInstance(typeof(T), BritDriver);
-        }
-
-        public void SavePage()
-        {
-            Click(Save);
-        }
+        #endregion
     }
 }

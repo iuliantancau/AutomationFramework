@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Base.PageObjects
 {
-    class ExtensionScreen : BasePage
+    public class ExtensionScreen : BasePage
     {
         public ExtensionScreen(BritDriver britDriver) : base(britDriver)
         {

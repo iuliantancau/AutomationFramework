@@ -1,11 +1,5 @@
-﻿
-using Base.PageObjects;
+﻿using Base.PageObjects;
 using Base.PageObjects.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 
 namespace Base.BDD.StepDefinition
@@ -15,16 +9,27 @@ namespace Base.BDD.StepDefinition
     {
         Header Header;
         PriorClaimsScreen PriorClaimsScreen;
+        DetailsScreen DetailsScreen;
 
         public HeaderSteps(Header header)
         {
             Header = header;
         }
 
-        [When(@"The user navigates to '(.*)' tab")]
-        public void GivenTheUserNavigatesToTab(string tabName)
+        [When(@"The user navigates to Details screen")]
+        public void WhenTheUserNavigatesToDetailsScreen()
         {
-            PriorClaimsScreen = Header.ChangeTab<PriorClaimsScreen>();           
+            DetailsScreen = Header.GoToDetailsScreen();
         }
+
+        [When(@"The user navigates to Prior Claims screen")]
+        public void WhenTheUserNavigatestoPriorClaimsScreen()
+        {
+            PriorClaimsScreen = Header.GoToPriorClaimsScreen();
+        }
+
+       
+
+
     }
 }

@@ -18,6 +18,17 @@ namespace Base.PageObjects.Common
             BritDriver = britDriver;
         }
 
+        #region Public Methods
+        public void ExpandRegion(IWebElement element)
+        {
+            int retryCount = 0;
+            while (!IsRegionExpanded(element) && retryCount < 10)
+            {
+                Click(element);
+                retryCount++;
+            }
+        }
+
         #region Actions
         public void Click(IWebElement element)
         {
@@ -58,7 +69,7 @@ namespace Base.PageObjects.Common
                 BritDriver.WaitForBeClickable(element.WrappedElement);
                 element.SelectByText(text);
                 BritDriver.WaitForPendingAjaxTasks();
-            }            
+            }
         }
 
         public void SelectByValue(SelectElement element, string value)
@@ -180,7 +191,9 @@ namespace Base.PageObjects.Common
             return BuildSelectElementsList(iWebElements);
         }
         #endregion
+        #endregion
 
+        #region Private Methods
         private string GetTextFromElement(IWebElement element, string type)
         {
             string text = string.Empty;
@@ -212,5 +225,13 @@ namespace Base.PageObjects.Common
             }
             return selectElements;
         }
+
+        private bool IsRegionExpanded(IWebElement element)
+        {
+            BritDriver.WaitForVisibility(element);
+            BritDriver.WaitForBeClickable(element);
+            return Convert.ToBoolean(element.GetAttribute("aria-expanded"));
+        }
+        #endregion
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Base.PageObjects
 {
-    class DetailsScreen : BasePage
+    public class DetailsScreen : BasePage
     {
         public DetailsScreen(BritDriver britDriver) : base(britDriver) { }
     }

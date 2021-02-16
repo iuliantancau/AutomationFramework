@@ -13,22 +13,52 @@ namespace Base.PageObjects.Common
 {
     class LeftMenu : BasePage
     {
-        IWebElement LeftHandMenuTab => FindElementById("");
-        IWebElement ActionsTab => FindElementById("");
+        IWebElement LeftHandMenuTab => FindElementById("panel");
 
-        SelectElement Action => FindSelectElementById("");
-        SelectElement Reason => FindSelectElementById("");
+        #region Actions tab
+        IWebElement ActionsTab => FindElementById("historytab");
+        SelectElement Action => FindSelectElementById("UpdateStatus");
+        SelectElement Reason => FindSelectElementById("UpdateReason");
         IWebElement EffectiveDate => FindElementById("");
         IWebElement SendBrokerEmailYES => FindElementById("");
         IWebElement SendBrokerEmailNO => FindElementById("");
         IWebElement Save => FindElementById("");
+        #endregion
 
+        #region Documnts tab
+        SelectElement DocumentsTab => FindSelectElementById("RD_doctab");
+        IReadOnlyCollection<IWebElement> DocumentList => FindElementsByXPath("//div[@class = 'document']//span");
+        #endregion
 
-        public LeftMenu(BritDriver britDriver) : base(britDriver) { }      
+        public LeftMenu(BritDriver britDriver) : base(britDriver) { }
 
-
-        public T SelectAction<T>(SelectActionModel data) 
+        #region Public Methods
+        public void DownloadDocument(string documentName)
         {            
+            var document = DocumentList.Where(dl => GetInnerText(dl).Equals(documentName)).FirstOrDefault();
+            Click(document);
+            new FileHandler(documentName).WaitFileToDownload();
+        }
+
+        public BrokerScreen1 CreateMTA(SelectActionModel mtaData)
+        {
+            mtaData.Action = "Create MTA";
+            return SelectAction<BrokerScreen1>(mtaData);
+        }
+
+        public BrokerScreen3 CreateCancellation(SelectActionModel cancellationData)
+        {
+            cancellationData.Action = "Create Cancellation";
+            return SelectAction<BrokerScreen3>(cancellationData);
+        }
+
+        public BrokerScreen1 CreateRenewal()
+        {
+            return SelectAction<BrokerScreen1>(new SelectActionModel() { Action = "Create Renwal" });
+        }
+
+        public T SelectAction<T>(SelectActionModel data)
+        {
             OpenLeftMenu(ActionsTab);
             SelectByText(Action, data.Action);
             SelectByText(Reason, data.Reason);
@@ -38,7 +68,9 @@ namespace Base.PageObjects.Common
 
             return (T)Activator.CreateInstance(typeof(T));
         }
+        #endregion
 
+        #region Private Methods
         private void OpenLeftMenu(IWebElement tab)
         {
             int retryCount = 0;
@@ -64,5 +96,6 @@ namespace Base.PageObjects.Common
             Thread.Sleep(200);
             return Convert.ToBoolean(LeftHandMenuTab.GetAttribute("class").Equals("is-open"));
         }
+        #endregion
     }
 }

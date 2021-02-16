@@ -17,6 +17,10 @@ namespace Base.BDD.TableModels
         public string ChooseInsured { get; set; }
         #endregion
 
+        #region Broker Details
+        public string Broker { get; set; }
+        #endregion
+
         #region Policy Details
         public string InceptionDate { get; set; }
         public string ExpiryDate { get; set; }

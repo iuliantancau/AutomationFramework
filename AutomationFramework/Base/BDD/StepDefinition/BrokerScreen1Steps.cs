@@ -26,6 +26,13 @@ namespace Base.BDD.StepDefinition
             BrokerScreen1.CompleteInsuredDetails(insuredDetails);            
         }
 
+        [Given(@"The user completes the Broker Details region")]
+        public void GivenTheUserCompletesTheBrokerDetailsRegion(Table table)
+        {
+            var brokerDetails = table.CreateInstance<BrokerScreen1Model>();
+            BrokerScreen1.CompleteBrokerDetails(brokerDetails);
+        }
+
         [Given(@"The user completes the Policy Details region")]
         public void GivenTheUserCompletesThePolicyDetailsRegion(Table table)
         {
@@ -33,8 +40,7 @@ namespace Base.BDD.StepDefinition
             BrokerScreen1.CompletePolicyDetails(policyDetails);
         }
 
-        [Given(@"The user saves the page")]
-        [When(@"The user saves the page")]
+        [StepDefinition(@"The user saves the page")]
         public void GivenTheUserSavesThePage()
         {
             BrokerScreen1.Header.SavePage();

@@ -12,9 +12,7 @@ namespace Base.BDD.StepDefinition
         public BritDriver BritDriver;
         public DataReader DataReader => new DataReader();
         public BrokerScreen1 BrokerScreen1;
-        public Header Header;
-
-       
+        public Header Header;       
     }  
 
 }

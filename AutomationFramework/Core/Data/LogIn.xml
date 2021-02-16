@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<DataSets>
+  <DataSet Id ="1">
+    <Username>Terror 24 Broker</Username>
+    <Password>Twenty20</Password>
+    <Region></Region>
+  </DataSet>
+
+  <DataSet Id ="2">
+    <Username>Endava Uwr</Username>
+    <Password>Twenty20</Password>
+    <Region></Region>
+  </DataSet>
+ </DataSets>

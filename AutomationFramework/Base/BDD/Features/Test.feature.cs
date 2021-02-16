@@ -35,8 +35,7 @@ namespace Base.BDD.Features
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "BDD/Features", "Test", "\tIn order to avoid silly mistakes\r\n\tAs a math idiot\r\n\tI want to be told the sum o" +
-                    "f two numbers", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "BDD/Features", "Test", null, ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -81,7 +80,7 @@ namespace Base.BDD.Features
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Test Scenario 1", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 8
+#line 3
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -101,122 +100,62 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 9
+#line 4
  testRunner.Given("The user navigates to website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 10
- testRunner.And("The user logs in as a broker", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 5
+ testRunner.And("The user logs in as an underwriter", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 11
+#line 6
  testRunner.And("The user selects product \'Terror\' and scheme \'Terror 24\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                             "Insured Type",
+                            "Country",
                             "Insured Name",
                             "Choose Insured"});
                 table1.AddRow(new string[] {
                             "Corporate",
+                            "United States of America",
                             "Test",
-                            "Test Partners, Centurion House London Road, STAINES, TW18 4AX"});
-#line 12
+                            "TEST CORP, 132 HOCKHOCKSON RD, COLTS NECK, NJ, 07722"});
+#line 7
  testRunner.And("The user completes the Insured Details region", ((string)(null)), table1, "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
-                            "QuotableCoverage1"});
+                            "Broker"});
                 table2.AddRow(new string[] {
-                            "Property Damage Only"});
-#line 15
- testRunner.And("The user completes the Policy Details region", ((string)(null)), table2, "And ");
-#line hidden
-#line 18
- testRunner.When("The user saves the page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 19
- testRunner.And("The user navigates to \'Prior Claims\' tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+                            "BGSU Brokers"});
+#line 10
+ testRunner.And("The user completes the Broker Details region", ((string)(null)), table2, "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Prior Question1"});
+                            "Expiry Date",
+                            "QuotableCoverage1"});
                 table3.AddRow(new string[] {
-                            "true"});
-#line 20
- testRunner.And("The user answers Prior Claims Questions", ((string)(null)), table3, "And ");
+                            "30/09/2021",
+                            "Property Damage Only"});
+#line 13
+ testRunner.And("The user completes the Policy Details region", ((string)(null)), table3, "And ");
 #line hidden
-#line 23
- testRunner.And("The user confirms the disclosures", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 16
+ testRunner.When("The user saves the page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 17
+ testRunner.And("The user navigates to Prior Claims screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Action",
-                            "Reason",
-                            "Effective Date",
-                            "Send Broker Email"});
+                            "Prior Question1"});
                 table4.AddRow(new string[] {
-                            "Create MTA",
-                            "Other",
-                            "16/03/2021",
-                            "false"});
-#line 24
- testRunner.And("the user selects an action from left menu", ((string)(null)), table4, "And ");
+                            "true"});
+#line 18
+ testRunner.And("The user answers Prior Claims Questions", ((string)(null)), table4, "And ");
 #line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Premium Test")]
-        public virtual void PremiumTest()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Premium Test", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 28
-this.ScenarioInitialize(scenarioInfo);
+#line 21
+ testRunner.And("The user confirms the disclosures", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 29
- testRunner.Given("The user navigates to website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 30
- testRunner.And("The user logs in as a broker", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 31
- testRunner.And("The user selects product \'Terror\' and scheme \'Terror 24\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-                TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Insured Type",
-                            "Insured Name",
-                            "Choose Insured"});
-                table5.AddRow(new string[] {
-                            "Corporate",
-                            "Test",
-                            "Test Partners, Centurion House London Road, STAINES, TW18 4AX"});
-#line 32
- testRunner.And("The user completes the Insured Details region", ((string)(null)), table5, "And ");
-#line hidden
-                TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
-                            "QuotableCoverage1"});
-                table6.AddRow(new string[] {
-                            "Property Damage Only"});
-#line 35
- testRunner.And("The user completes the Policy Details region", ((string)(null)), table6, "And ");
-#line hidden
-#line 38
- testRunner.When("The user saves the page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 22
+ testRunner.And("The user downloads \'Broker Quote\' document", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();

@@ -2,20 +2,27 @@
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System;
-using System.Collections.Generic;
+using System.Reflection;
 
 namespace Base.Utils
 {
     public class BritDriver
     {
         IWebDriver Driver;
-        WebDriverWait Wait;
+        WebDriverWait Wait;        
 
         public BritDriver(Browser browser)
         {
             switch (browser)
             {
-                case Browser.Chrome: Driver = new ChromeDriver(); break;
+                case Browser.Chrome:
+                    var chromeOption = new ChromeOptions();
+                    chromeOption.AddUserProfilePreference("disable-popup-blocking", "true");
+                    chromeOption.AddUserProfilePreference("download.prompt_for_download", "false");
+                    chromeOption.AddUserProfilePreference("directory_upgrade", "true");
+                    chromeOption.AddUserProfilePreference("download.default_directory", Assembly.GetExecutingAssembly().Location);
+                    Driver = new ChromeDriver(chromeOption);
+                    break;
 
                 default: throw new ArgumentException();
             }
@@ -29,7 +36,7 @@ namespace Base.Utils
         public IWebDriver GetDriver()
         {
             return Driver;
-        }      
+        }
 
         #region Wait Methods
         public void WaitForVisibility(IWebElement element, int timeOut = 60, int pollingInterval = 300)
@@ -84,7 +91,7 @@ namespace Base.Utils
         public void WaitForStaleness(IWebElement element)
         {
             try
-            {               
+            {
                 Wait.PollingInterval = TimeSpan.FromMilliseconds(50);
                 Wait.Until(ExpectedConditions.StalenessOf(element));
             }

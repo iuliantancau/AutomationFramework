@@ -15,21 +15,39 @@ namespace Base.BDD.StepDefinition
     class LeftMenuSteps
     {
         LeftMenu LeftMenu;
-        dynamic Page;
+        BrokerScreen1 BrokerScreen1;
+        BrokerScreen3 BrokerScreen3;
 
         public LeftMenuSteps(LeftMenu leftMenu)
         {
             LeftMenu = leftMenu;
-        }
-        
-        [When(@"the user selects an action from left menu")]
-        public void WhenTheUserSelectsAnActionFromLeftMenu(Table table)
+        }      
+
+        [When(@"The user Creates a MTA")]
+        public void WhenTheUserCreatesAMTA(Table table)
         {
-            var data = table.CreateInstance<SelectActionModel>();
-            Page = LeftMenu.SelectAction<object>(data);            
+            var mtaData = table.CreateInstance<SelectActionModel>();
+            BrokerScreen1 = LeftMenu.CreateMTA(mtaData);
         }
 
+        [When(@"The user creates a Cancellation")]
+        public void WhenTheUserCreatesACancellation(Table table)
+        {
+            var cancellationData = table.CreateInstance<SelectActionModel>();
+            BrokerScreen3 = LeftMenu.CreateCancellation(cancellationData);
+        }
 
+        [When(@"the user creates a Renewal")]
+        public void WhenTheUserCreatesARenewal()
+        {
+            BrokerScreen1 = LeftMenu.CreateRenewal();
+        }
+
+        [StepDefinition(@"The user downloads '(.*)' document")]
+        public void WhenTheUserDownloadsDocument(string documentName)
+        {
+            LeftMenu.DownloadDocument(documentName);
+        }
 
 
     }
